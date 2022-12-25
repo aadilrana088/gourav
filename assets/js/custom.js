@@ -121,27 +121,27 @@ $('.accordion')
         $('.accordion-content').not($(this).next()).slideUp('fast');
         $('.accordion-title').not($(this)).removeClass('active');
     });
-const counterStart = () => {
-    const counters = document.querySelectorAll('.counting');
-    const speed = 200;
+// const counterStart = () => {
+//     const counters = document.querySelectorAll('.counting');
+//     const speed = 200;
 
-    counters.forEach((counter) => {
-        const animate = () => {
-            const value = +counter.getAttribute('counter_value');
-            const data = +counter.innerText;
+//     counters.forEach((counter) => {
+//         const animate = () => {
+//             const value = +counter.getAttribute('counter_value');
+//             const data = +counter.innerText;
 
-            const time = value / speed;
-            if (data < value) {
-                counter.innerText = Math.ceil(data + time);
-                setTimeout(animate, 1);
-            } else {
-                counter.innerText = value;
-            }
-        };
+//             const time = value / speed;
+//             if (data < value) {
+//                 counter.innerText = Math.ceil(data + time);
+//                 setTimeout(animate, 1);
+//             } else {
+//                 counter.innerText = value;
+//             }
+//         };
 
-        animate();
-    });
-};
+//         animate();
+//     });
+// };
 // define an observer instance
 // var observer = new IntersectionObserver(onIntersection, {
 //     root: null, // default is the viewport
@@ -160,3 +160,49 @@ const counterStart = () => {
 
 // // To stop observing:
 // // observer.unobserve(entry.target)
+class CountUp {
+    constructor(triggerEl, counterEl) {
+        const counter = document.querySelector(counterEl);
+        const trigger = document.querySelector(triggerEl);
+        let num = 0;
+
+        const countUp = () => {
+            if (num <= counter.dataset.stop) ++num;
+            counter.textContent = num;
+        };
+
+        const observer = new IntersectionObserver(
+            (el) => {
+                if (el[0].isIntersecting) {
+                    const interval = setInterval(() => {
+                        num < counter.dataset.stop
+                            ? countUp()
+                            : clearInterval(interval);
+                    }, counter.dataset.speed);
+                }
+            },
+            { threshold: [0] }
+        );
+
+        observer.observe(trigger);
+    }
+}
+
+new CountUp('#counter_start1', '#count_one_1');
+new CountUp('#counter_start1', '#count_one_2');
+new CountUp('#counter_start1', '#count_one_3');
+new CountUp('#counter_start1', '#count_one_4');
+
+$(document).on('click', '.services_read', function () {
+    var s = $(this).children();
+    $(this).hasClass('extraHidden')
+        ? ($(this).removeClass('extraHidden').addClass('extraVisible'),
+          $(this).find('span').html('Read less'),
+          $(this)
+              .prev('p')
+              .find('.services_more')
+              .css('display', 'inline-block'))
+        : ($(this).removeClass('extraVisible').addClass('extraHidden'),
+          $(this).find('span').html('Read more'),
+          $(this).prev('p').find('.services_more').css('display', 'none'));
+});

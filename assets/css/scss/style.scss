@@ -6,6 +6,9 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 90vh;
+    @include mobile {
+        height: 70vh;
+    }
     .container {
         height: 100%;
     }
@@ -64,6 +67,28 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
+        @include sm-to-md {
+            h1 {
+                line-height: 56px;
+                font-size: 50px;
+                margin: 1rem 0 0.5rem;
+            }
+        }
+        @include mobile {
+            .sub_head {
+                font-size: 1rem;
+                padding: 0.5rem 1rem 0.5rem 3rem;
+                text-transform: capitalize;
+                &::after {
+                    width: 30px;
+                }
+            }
+            h1 {
+                font-size: 2rem;
+                line-height: 3rem;
+                margin: 1rem 0;
+            }
+        }
     }
 }
 .banner_card {
@@ -80,7 +105,7 @@
             background: #fff;
             .card_top {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 gap: 1rem;
                 span {
                     padding: 0.8rem;
@@ -97,6 +122,11 @@
                 font-size: 1rem;
                 margin-top: 1rem;
             }
+        }
+    }
+    @include mobile {
+        .banner_card_main {
+            grid-template-columns: minmax(0, auto);
         }
     }
 }
@@ -164,6 +194,39 @@
             }
         }
     }
+    @include sm-to-md {
+        h2 {
+            font-size: 1.8rem;
+        }
+        .about_main {
+            grid-template-columns: repeat(2, 1fr);
+            .about_main_right {
+                .about_para {
+                    margin: 0.5rem 0 1rem;
+                }
+                .about_service .about_service_detail {
+                    padding: 15px 0;
+                }
+            }
+        }
+    }
+    @include mobile {
+        .about_main {
+            grid-template-columns: minmax(0, auto);
+            gap: 2.5rem;
+            .about_main_right {
+                h2 {
+                    font-size: 1.8rem;
+                }
+                .about_para {
+                    margin: 1rem 0 2.5rem;
+                }
+                .about_service .about_service_detail {
+                    padding: 15px 0;
+                }
+            }
+        }
+    }
 }
 .services {
     padding: 2rem 0;
@@ -195,7 +258,8 @@
             text-align: center;
             color: $text-dark;
             @include mobile {
-                font-size: 1rem;
+                font-size: 1.4rem;
+                line-height: 2rem;
             }
         }
     }
@@ -292,6 +356,22 @@
             }
         }
     }
+    @include sm-to-md {
+        .service_main {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @include mobile {
+        .heading .sub_head {
+            margin-bottom: 0.5rem;
+            &::after {
+                display: none;
+            }
+        }
+        .service_main {
+            grid-template-columns: minmax(0, auto);
+        }
+    }
 }
 .counter {
     margin: 6rem 0;
@@ -357,6 +437,20 @@
             }
         }
     }
+    @include sm-to-md {
+        .counter_main {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 6rem;
+            column-gap: 2rem;
+        }
+    }
+    @include mobile {
+        .counter_main {
+            grid-template-columns: minmax(0, auto);
+            column-gap: 0;
+            row-gap: 6rem;
+        }
+    }
 }
 .contact {
     display: grid;
@@ -387,8 +481,8 @@
         }
         .form_main {
             background-color: #2c2e33;
-            max-width: 510px;
-            width: 100%;
+            width: 510px;
+            max-width: 100%;
             border-style: solid;
             border-width: 5px 0px 0px 0px;
             border-color: #ffaa17;
@@ -443,8 +537,8 @@
         align-content: flex-start;
         background-color: #f4f5f8;
         .faq_main {
-            max-width: 530px;
-            width: 100%;
+            max-width: 100%;
+            width: 530px;
             transition: background 0.3s, border 0.3s, border-radius 0.3s,
                 box-shadow 0.3s;
             height: 100%;
@@ -487,7 +581,7 @@
                         margin-bottom: 15px;
                     }
                     .accordion-title {
-                        padding: 15px 35px 15px 20px;
+                        padding: 10px 35px 10px 15px;
                         color: $text-dark;
                         margin-bottom: -1px;
                         font-weight: 600;
@@ -495,7 +589,7 @@
                         gap: 15px;
                         align-items: center;
                         justify-content: space-between;
-                        font-size: 1.25rem;
+                        font-size: 1rem;
                         position: relative;
                         background: $orange;
                         span {
@@ -514,7 +608,7 @@
                     .accordion-content {
                         display: none;
                         position: relative;
-                        padding: 20px 30px 20px 30px;
+                        padding: 10px 15px;
                         color: $text-color-secondary;
                         font-size: 1rem;
                         background: #fff;
@@ -530,6 +624,33 @@
                 }
                 @include mobile {
                     padding: 13px 0;
+                }
+            }
+        }
+    }
+    @include sm-to-md {
+        grid-template-columns: minmax(0, auto);
+        .faq {
+            .faq_main {
+                width: 650px;
+            }
+        }
+    }
+    @include mobile {
+        grid-template-columns: minmax(0, auto);
+        .form {
+            padding: 0;
+            .form_main {
+                padding: 3rem 2rem;
+            }
+        }
+        .faq {
+            padding: 2rem 1rem 1rem;
+            .faq_main {
+                width: 650px;
+                h3 {
+                    font-size: 2rem;
+                    margin-bottom: 1rem;
                 }
             }
         }
@@ -666,6 +787,23 @@ footer {
             color: $orange;
             font-weight: 600;
             letter-spacing: 1px;
+        }
+    }
+    @include sm-to-md {
+        padding: 3rem 0 0;
+        .footer_top {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 2rem;
+            row-gap: 1rem;
+        }
+    }
+    @include mobile {
+        padding: 3rem 0 0;
+        .footer_top {
+            grid-template-columns: minmax(0, auto);
+        }
+        .footer_bottom {
+            margin-top: 0;
         }
     }
 }

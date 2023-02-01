@@ -52,6 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 n('#cssmenu').menumaker({ format: 'multitoggle' });
             });
         })(jQuery);
+    $('a[href*="#nav"]').on('click', function (e) {
+        e.preventDefault();
+        var offsetTop = $($(this).attr('href')).offset().top;
+        offsetTop = offsetTop - 160;
+        console.log(offsetTop);
+        $('html, body').animate(
+            {
+                scrollTop: offsetTop,
+            },
+            500,
+            'linear'
+        );
+    });
     // Footer js
     $(document).on('click', '.showmore_list', function () {
         var s = $(this).children();

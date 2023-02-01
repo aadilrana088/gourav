@@ -29,11 +29,11 @@
             </div>
             <nav>
                 <ul class="nav" id="cssmenu">
-                    <li><a href="javascript:void(0)">Home</a></li>
-                    <li><a href="javascript:void(0)">About Us</a></li>
-                    <li><a href="javascript:void(0)">Services</a></li>
-                    <li><a href="javascript:void(0)">Resources</a></li>
-                    <li><a href="javascript:void(0)">Contact</a></li>
+                    <li><a href="#nav_home">Home</a></li>
+                    <li><a href="#nav_aboutus">About Us</a></li>
+                    <li><a href="#nav_services">Services</a></li>
+                    <li><a href="#nav_resources">Resources</a></li>
+                    <li><a href="#nav_contact">Contact</a></li>
                 </ul>
                 <div class="header_number">
                     <span class="number">
@@ -44,20 +44,20 @@
                         </span>
                     </span>
                     <span class="nav_btn">
-                        <button type="button" class="btn_orange"><span>Get Started</span></button>
+                        <a href="#nav_contact" class="btn_orange"><span>Get Started</span></a>
                     </span>
                 </div>
             </nav>
         </div>
     </div>
-    <section class="banner">
+    <section class="banner" id="nav_home">
         <div class="container">
             <div class="banner_content">
                 <div class="sub_head">Solutions for your business</div>
                 <h1>IT Solutions <br> <span>&</span> Technology</h1>
                 <p>There are many Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae blanditiis alias
                     numquam quis?</p>
-                <button class="btn_orange" type="button"><span>Get Started</span></button>
+                <a href="#nav_contact" class="btn_orange"><span>Get Started</span></a>
             </div>
         </div>
     </section>
@@ -88,7 +88,7 @@
             </div>
         </div>
     </section>
-    <section class="about">
+    <section class="about" id="nav_aboutus">
         <div class="container">
             <div class="about_main">
                 <div class="about_main_left">
@@ -121,13 +121,13 @@
                         </div>
                     </div>
                     <div class="btn_div">
-                        <button class="btn_orange"><span>Contact Us</span></button>
+                        <a class="btn_orange" href="#nav_contact"><span>Contact Us</span></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="services">
+    <section class="services" id="nav_services">
         <div class="container">
             <div class="heading">
                 <div class="sub_head">Services we’re offering</div>
@@ -262,7 +262,7 @@
             </div>
         </div>
     </section>
-    <section class="counter">
+    <section class="counter" id="nav_resources">
         <div class="container">
             <div class="counter_main" id="counter_start1">
                 <div class="card">
@@ -296,34 +296,40 @@
             </div>
         </div>
     </section>
-    <section class="contact">
+    <section class="contact" id="nav_contact">
         <div class="form">
             <div class="form_overlay"></div>
             <div class="form_main">
                 <div class="form_main_card">
                     <div class="sub_head">Contact us</div>
                     <h3>Write Email</h3>
-                    <div class="form_fields">
-                        <div class="form_group">
-                            <input class="form_control" aria-required="true" aria-invalid="false"
-                                placeholder="Your Name" value="" type="text" name="your-name">
+                    <div class="response_msg"></div>
+                    <div id="loading-img">loading...</div>
+                    <form name="contact-form" action="" method="post" id="contact-form">
+                        <div class="form_fields">
+                            <div class="form_group">
+                                <input class="form_control" aria-required="true" aria-invalid="false"
+                                    placeholder="Your Name" value="" type="text" name="txtName" id="txtName">
+                            </div>
+                            <div class="form_group">
+                                <input class="form_control" aria-required="true" aria-invalid="false"
+                                    placeholder="Email Address" value="" type="email" name="txtEmail" id="txtEmail">
+                            </div>
+                            <div class="form_group">
+                                <input class="form_control" aria-required="true" aria-invalid="false"
+                                    placeholder="Phone Number" value="" type="number" name="txtPhone" id="txtPhone">
+                            </div>
+                            <div class="form_group">
+                                <textarea cols="40" rows="7" class="form_control" aria-required="true"
+                                    aria-invalid="false" placeholder="Write a Message" name="txtMessage"
+                                    id="txtMessage"></textarea>
+                            </div>
+                            <div class="btn_div">
+                                <button type="submit" class="btn_orange" name="submit" value="Submit"
+                                    id="submit_form"><span>Send a Message</span></button>
+                            </div>
                         </div>
-                        <div class="form_group">
-                            <input class="form_control" aria-required="true" aria-invalid="false"
-                                placeholder="Email Address" value="" type="email" name="your-email">
-                        </div>
-                        <div class="form_group">
-                            <input class="form_control" aria-required="true" aria-invalid="false"
-                                placeholder="Phone Number" value="" type="text" name="your-phone">
-                        </div>
-                        <div class="form_group">
-                            <textarea cols="40" rows="7" class="form_control" aria-required="true" aria-invalid="false"
-                                placeholder="Write a Message" name="textarea"></textarea>
-                        </div>
-                        <div class="btn_div">
-                            <button type="submit" class="btn_orange"><span>Send a Message</span></button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -456,16 +462,16 @@
                         </div>
                         <ul>
                             <li>
-                                <a href="">Home</a>
+                                <a href="#nav_home">Home</a>
                             </li>
                             <li>
-                                <a href="">About Us</a>
+                                <a href="#nav_aboutus">About Us</a>
                             </li>
                             <li>
-                                <a href="">Services</a>
+                                <a href="#nav_services">Services</a>
                             </li>
                             <li>
-                                <a href="">Contact</a>
+                                <a href="#nav_contact">Contact</a>
                             </li>
                         </ul>
                     </div>
